@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  background-color: #A2AFE2;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
