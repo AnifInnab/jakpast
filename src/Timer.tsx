@@ -1,6 +1,6 @@
 import "./Circle.css";
 import useCountdown from "./useCountdown";
-import cooking from "./assets/cooking.png";
+import cooking from "./assets/cooking.svg";
 import alarm from "./assets/alarm.wav";
 import { useEffect, useState } from "react";
 
@@ -30,18 +30,26 @@ const Timer = ({
   return (
     <div
       onClick={restart}
-      className={time === 0 ? "blink" : undefined}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        height: "100%",
+        textAlign: "center",
         color: "black",
       }}
     >
-      <img src={cooking} width={"30%"} alt="cooking" />
-      <h1>{formattedTime}</h1>
-      <h3>{time === 0 ? "Take out!/Mengambil!" : "Boiling/Mendidih"}</h3>
+      <img src={cooking} width={"100%"} alt="cooking" />
+      <div
+        style={{
+          position: "absolute",
+          top: "30%",
+          bottom: "70%",
+          width: "100%",
+        }}
+      >
+        <h1 style={{ color: time < 30000 ? "#ad1b1b" : undefined }}>
+          {formattedTime}
+        </h1>
+        <h3 style={{ margin: 0 }}>{time === 0 ? "Take out!" : "Boiling"}</h3>
+      </div>
     </div>
   );
 };

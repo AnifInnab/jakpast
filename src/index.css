@@ -35,17 +35,58 @@ body {
   margin: 0;
 }
 
+/* Default styles for h1 */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin: 0 ;
+  font-size: 2em; /* This is equivalent to 32px assuming a base font size of 16px */
+  line-height: 1.2;
+  margin: 0;
 }
 
+/* Default styles for h2 */
+h2 {
+  font-size: 1.5em; /* This is equivalent to 24px assuming a base font size of 16px */
+  line-height: 1.2;
+  margin: 0;
 
+}
+
+/* Default styles for h3 */
+h3 {
+  font-size: 1.25em; /* This is equivalent to 20px assuming a base font size of 16px */
+  line-height: 1.2;
+  margin: 0;
+
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.5em; /* This is equivalent to 24px assuming a base font size of 16px */
+  }
+  h2 {
+    font-size: 1.25em; /* This is equivalent to 20px assuming a base font size of 16px */
+  }
+  h3 {
+    font-size: 1.125em; /* This is equivalent to 18px assuming a base font size of 16px */
+  }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.25em; /* This is equivalent to 20px assuming a base font size of 16px */
+  }
+  h2 {
+    font-size: 1.125em; /* This is equivalent to 18px assuming a base font size of 16px */
+  }
+  h3 {
+    font-size: 1em; /* This is equivalent to 16px assuming a base font size of 16px */
+  }
+}
 
 .blink{
-  width:400px;
-  height:400px;
+  width:100%;
+  height:100%;
   animation: blink 5s infinite;
 }
 @keyframes blink{
