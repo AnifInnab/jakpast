@@ -1,6 +1,6 @@
 import "./Circle.css";
 import useCountdown from "./useCountdown";
-import cooking from "./assets/cooking.svg";
+import cooking from "./assets/new_2.svg";
 import alarm from "./assets/alarm.wav";
 import { useEffect, useState } from "react";
 
