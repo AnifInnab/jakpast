@@ -7,10 +7,12 @@ const App = () => {
       <div className="row">
         <Circle />
         <Circle />
-        <Circle />
       </div>
       <div className="row">
         <Circle />
+        <Circle />
+      </div>
+      <div className="row">
         <Circle />
         <Circle />
       </div>
