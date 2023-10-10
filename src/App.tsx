@@ -24,7 +24,7 @@ const App = () => {
     });
   };
 
-  const { isSupported, released, request, release, type } = useWakeLock({
+  const { isSupported, request, release } = useWakeLock({
     onRequest: () => console.log("Wakelock requested"),
     onError: () => console.log("An error happened with wakelock 💥"),
     onRelease: () => console.log("Wakelock released"),
