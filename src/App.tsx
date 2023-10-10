@@ -1,28 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Circle from "./Circle";
 import { useWakeLock } from "react-screen-wake-lock";
 
 const App = () => {
-  const { isSupported, released, request } = useWakeLock({
-    onRequest: () => alert("Screen Wake Lock: requested!"),
+  const [wakelock, setWakelock] = useState(false);
+  const { isSupported, released, request, release, type } = useWakeLock({
+    onRequest: () => console.log("Wakelock requested"),
     onError: () => alert("An error happened 💥"),
-    onRelease: () => alert("Screen Wake Lock: released!"),
+    onRelease: () => console.log("Wakelock released"),
   });
-  console.log({ isSupported, released });
-  useEffect(() => {
-    requestWakeLock();
-  }, []);
+  // useEffect(() => {
+  //   requestWakeLock();
+  // }, []);
 
   const requestWakeLock = async () => {
-    if (!released) {
-      await request();
+    if (!wakelock) {
+      setWakelock(true);
+      await request("screen");
+    } else {
+      setWakelock(false);
+      await release();
     }
   };
   return (
     <div className="app">
-      <p>{isSupported ? "WL Supported" : "WL not supported"}</p>
-      <p>{released ? "WL Released" : "WL not Released"}</p>
+      <p>
+        Wakelock:{" "}
+        {`isSupported: ${isSupported} released: ${released} type: ${type}`}
+      </p>
+      <input
+        type="checkbox"
+        checked={wakelock}
+        onChange={() => requestWakeLock()}
+      />
 
       <div className="row">
         <Circle />
