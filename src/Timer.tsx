@@ -27,6 +27,18 @@ const Timer = ({
     };
   }, [time]);
 
+  useEffect(() => {
+    if (time === 0) {
+      const timeoutId = setTimeout(() => {
+        restart();
+      }, 30000);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [time, restart]);
+
   return (
     <div
       onClick={restart}

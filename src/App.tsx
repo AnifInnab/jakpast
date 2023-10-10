@@ -5,14 +5,17 @@ import { Kitchen } from "./Kitchen";
 import { Button, Stack, TextField, Typography } from "@mui/material";
 
 export interface Settings {
-  timerPasta: number;
+  timerPasta1: number;
+  timerPasta2: number;
+
   timerWaterLevel: number;
 }
 const App = () => {
   const [wakelock, setWakelock] = useState(false);
   const [start, setStart] = useState(false);
   const [settings, setSettings] = useState<Settings>({
-    timerPasta: 6,
+    timerPasta1: 4,
+    timerPasta2: 6,
     timerWaterLevel: 60,
   });
 
@@ -47,11 +50,19 @@ const App = () => {
             {`Wakelock supported: ${isSupported ? "Yes" : "No"}`}
           </Typography>
           <TextField
-            label="Pasta Timer (minutes)"
+            label="Pasta Timer 1 (minutes)"
             variant="outlined"
-            name="timerPasta"
+            name="timerPasta1"
             type="number"
-            value={settings.timerPasta}
+            value={settings.timerPasta1}
+            onChange={handleTimerChange}
+          />
+          <TextField
+            label="Pasta Timer 2 (minutes)"
+            variant="outlined"
+            name="timerPasta2"
+            type="number"
+            value={settings.timerPasta2}
             onChange={handleTimerChange}
           />
           <TextField

@@ -54,7 +54,10 @@ export const Kitchen = ({
             sm={4}
             md={4}
           >
-            <PastaBoiler time={settings.timerPasta} />
+            <PastaBoiler
+              time1={settings.timerPasta1}
+              time2={settings.timerPasta2}
+            />
           </Grid>
         ))}
       </Grid>
