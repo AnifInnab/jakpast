@@ -46,7 +46,7 @@ export const Kitchen = ({
         handleClose={handleClose}
       />
       <Grid container spacing={2}>
-        {Array.from({ length: 6 }).map((boiler) => (
+        {Array.from({ length: 6 }).map(() => (
           <Grid
             sx={{ display: "flex", justifyContent: "center" }}
             item
