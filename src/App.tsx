@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Circle from "./Circle";
 import { useWakeLock } from "react-screen-wake-lock";
