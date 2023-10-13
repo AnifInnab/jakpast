@@ -12,18 +12,29 @@ export const Kitchen = ({
   settings: Settings;
   goBack: () => void;
 }) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openWaterLevelModal, setOpenWaterLevelModal] = useState(false);
+  const [openSaltPercentageModal, setOpenSaltPercentageModal] = useState(false);
 
   useEffect(() => {
-    const modalTimer = setInterval(() => {
-      setOpenModal(true);
-    }, settings.timerWaterLevel * 60 * 1000); // Show the modal every hour
+    const waterTimer = setInterval(() => {
+      setOpenWaterLevelModal(true);
+    }, settings.timerWaterLevel * 60 * 1000);
 
-    return () => clearInterval(modalTimer);
+    const saltTimer = setInterval(() => {
+      setOpenSaltPercentageModal(true);
+    }, settings.saltPercentage * 60 * 1000);
+
+    return () => {
+      clearInterval(waterTimer);
+      clearInterval(saltTimer);
+    };
   }, []);
 
-  const handleClose = () => {
-    setOpenModal(false);
+  const handleCloseWaterLevel = () => {
+    setOpenWaterLevelModal(false);
+  };
+  const handleCloseSaltPercentage = () => {
+    setOpenSaltPercentageModal(false);
   };
 
   return (
@@ -42,8 +53,14 @@ export const Kitchen = ({
       <Modal
         title="Water level"
         text="Check water level - Periksa ketinggian air"
-        open={openModal}
-        handleClose={handleClose}
+        open={openWaterLevelModal}
+        handleClose={handleCloseWaterLevel}
+      />
+      <Modal
+        title="Salt percentage"
+        text="Check salt percentage - Periksa persentase garam"
+        open={openSaltPercentageModal}
+        handleClose={handleCloseSaltPercentage}
       />
       <Grid container spacing={2}>
         {Array.from({ length: 6 }).map(() => (

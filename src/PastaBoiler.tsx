@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Timer from "./Timer";
 import notcooking from "./assets/new_1.svg";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const PastaBoiler = ({
   time1,
@@ -23,7 +23,7 @@ export const PastaBoiler = ({
           }}
         />
       ) : (
-        <div
+        <Box
           onClick={() => setShowPicker(true)}
           style={{
             width: "100%",
@@ -36,7 +36,7 @@ export const PastaBoiler = ({
           {!showPicker ? (
             <img src={notcooking} width={"100%"} alt="notcooking" />
           ) : (
-            <div
+            <Box
               style={{
                 display: "flex",
                 width: "100%",
@@ -44,21 +44,21 @@ export const PastaBoiler = ({
                 borderRadius: "50%",
               }}
             >
-              <div
+              <Box
                 className="circleButton left"
                 onClick={() => setStart(time1)}
               >
-                <h2>{time1}</h2>
-              </div>
-              <div
+                <Typography typography="h2">{time1}</Typography>
+              </Box>
+              <Box
                 className="circleButton right"
                 onClick={() => setStart(time2)}
               >
-                <h2>{time2}</h2>
-              </div>
-            </div>
+                <Typography typography="h2">{time2}</Typography>
+              </Box>
+            </Box>
           )}
-        </div>
+        </Box>
       )}
     </Box>
   );

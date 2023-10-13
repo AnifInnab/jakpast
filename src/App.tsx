@@ -7,8 +7,8 @@ import { Button, Stack, TextField, Typography } from "@mui/material";
 export interface Settings {
   timerPasta1: number;
   timerPasta2: number;
-
   timerWaterLevel: number;
+  saltPercentage: number;
 }
 const App = () => {
   const [wakelock, setWakelock] = useState(false);
@@ -17,6 +17,7 @@ const App = () => {
     timerPasta1: 4,
     timerPasta2: 6,
     timerWaterLevel: 60,
+    saltPercentage: 120,
   });
 
   const handleTimerChange = (event: any) => {
@@ -71,6 +72,14 @@ const App = () => {
             name="timerWaterLevel"
             type="number"
             value={settings.timerWaterLevel}
+            onChange={handleTimerChange}
+          />
+          <TextField
+            label="Salt Percentage Timer (minutes)"
+            variant="outlined"
+            name="saltPercentage"
+            type="number"
+            value={settings.saltPercentage}
             onChange={handleTimerChange}
           />
           <Button
