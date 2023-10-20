@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import ArrowBackIcon from "@mui/icons-material/ChevronLeft";
 import { Settings } from "./App";
 import { PastaBoiler } from "./PastaBoiler";
+import alarm from "./assets/alarm.wav";
 
 export const Kitchen = ({
   settings,
@@ -15,13 +16,22 @@ export const Kitchen = ({
   const [openWaterLevelModal, setOpenWaterLevelModal] = useState(false);
   const [openSaltPercentageModal, setOpenSaltPercentageModal] = useState(false);
 
+  const [audio] = useState(new Audio(alarm));
+
+  const playSound = () => {
+    audio.loop = true;
+    audio.play();
+  };
+
   useEffect(() => {
     const waterTimer = setInterval(() => {
       setOpenWaterLevelModal(true);
+      playSound();
     }, settings.timerWaterLevel * 60 * 1000);
 
     const saltTimer = setInterval(() => {
       setOpenSaltPercentageModal(true);
+      playSound();
     }, settings.saltPercentage * 60 * 1000);
 
     return () => {
@@ -31,9 +41,11 @@ export const Kitchen = ({
   }, []);
 
   const handleCloseWaterLevel = () => {
+    audio.pause();
     setOpenWaterLevelModal(false);
   };
   const handleCloseSaltPercentage = () => {
+    audio.pause();
     setOpenSaltPercentageModal(false);
   };
 

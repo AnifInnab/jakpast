@@ -60,7 +60,7 @@ const Timer = ({
         <h1 style={{ color: time < 30000 ? "#ad1b1b" : undefined }}>
           {formattedTime}
         </h1>
-        <h3 style={{ margin: 0 }}>{time === 0 ? "Take out!" : "Boiling"}</h3>
+        <h3 style={{ margin: 0 }}>{time === 0 && "Take out!"}</h3>
       </div>
     </div>
   );
