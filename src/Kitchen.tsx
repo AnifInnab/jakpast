@@ -74,7 +74,7 @@ export const Kitchen = ({
         open={openSaltPercentageModal}
         handleClose={handleCloseSaltPercentage}
       />
-      <Grid container spacing={0} sx={{ height: "100%" }}>
+      <Grid container spacing={0} sx={{ height: "100%", my: 12 }}>
         {Array.from({ length: 6 }).map(() => (
           <Grid
             sx={{
@@ -88,9 +88,6 @@ export const Kitchen = ({
             sm={4}
             md={4}
           >
-            {/* <Box width={"100%"} height={"100%"} sx={{ bgcolor: "red" }}>
-              hej
-            </Box> */}
             <PastaBoiler
               time1={settings.timerPasta1}
               time2={settings.timerPasta2}
