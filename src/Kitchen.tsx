@@ -74,7 +74,7 @@ export const Kitchen = ({
         open={openSaltPercentageModal}
         handleClose={handleCloseSaltPercentage}
       />
-      <Grid container spacing={0} sx={{ height: "100%", my: 12 }}>
+      <Grid container spacing={0} sx={{ height: "100%", mb: 12 }}>
         {Array.from({ length: 6 }).map(() => (
           <Grid
             sx={{
