@@ -43,8 +43,11 @@ const Timer = ({
     <div
       onClick={restart}
       style={{
+        width: "100%",
         height: "100%",
+        backgroundColor: "white",
         textAlign: "center",
+        display: "flex",
         color: "black",
       }}
     >

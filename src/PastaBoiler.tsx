@@ -36,30 +36,37 @@ export const PastaBoiler = ({
           {!showPicker ? (
             <img src={notcooking} width={"100%"} alt="notcooking" />
           ) : (
-            <Box
-              style={{
-                display: "flex",
-                width: "100%",
-                border: "10px solid #cccccc",
-                borderRadius: "50%",
-              }}
-            >
-              <Box
-                className="circleButton left"
-                onClick={() => setStart(time1)}
-              >
-                <Typography typography="h2">{time1}</Typography>
-              </Box>
-              <Box
-                className="circleButton right"
-                onClick={() => setStart(time2)}
-              >
-                <Typography typography="h2">{time2}</Typography>
-              </Box>
-            </Box>
+            <TimePicker setStart={setStart} time1={time1} time2={time2} />
           )}
         </Box>
       )}
+    </Box>
+  );
+};
+
+const TimePicker = ({
+  setStart,
+  time1,
+  time2,
+}: {
+  setStart: (value: React.SetStateAction<number | undefined>) => void;
+  time1: number;
+  time2: number;
+}) => {
+  return (
+    <Box
+      style={{
+        display: "flex",
+        width: "100%",
+        border: "5px solid #cccccc",
+      }}
+    >
+      <Box className="circleButton left" onClick={() => setStart(time1)}>
+        <Typography typography="h2">{time1}</Typography>
+      </Box>
+      <Box className="circleButton right" onClick={() => setStart(time2)}>
+        <Typography typography="h2">{time2}</Typography>
+      </Box>
     </Box>
   );
 };
